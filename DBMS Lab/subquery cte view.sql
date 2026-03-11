@@ -15,7 +15,7 @@ select category, totalsales
 from categorytotals
 where totalsales > 1000;
 
--- view(virtual table)
+-- view (virtual table)
 create view categorysales as
 select category, sum(amount) as totalsales
 from sales
