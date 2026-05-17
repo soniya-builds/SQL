@@ -1,7 +1,3 @@
--- =========================================================
--- DATABASE CREATE
--- =========================================================
-
 -- Question:
 -- Create a database named DBLab and use it.
 
@@ -10,9 +6,7 @@ CREATE DATABASE DBLab
 USE DBLab
 
 
--- =========================================================
 -- CUSTOMER TABLE (PARENT TABLE)
--- =========================================================
 
 -- Question:
 -- Create Customer table.
@@ -28,9 +22,7 @@ CREATE TABLE customer
 )
 
 
--- =========================================================
 -- INSERT INTO CUSTOMER
--- =========================================================
 
 -- Question:
 -- Insert values into customer table.
@@ -43,9 +35,7 @@ VALUES
 (4, 'Nusrat', 28, 'Rajshahi')
 
 
--- =========================================================
 -- SHOW CUSTOMER TABLE
--- =========================================================
 
 -- Question:
 -- Show all customer information.
@@ -53,9 +43,7 @@ VALUES
 SELECT * FROM customer
 
 
--- =========================================================
 -- ORDERS TABLE (CHILD TABLE)
--- =========================================================
 
 -- Question:
 -- Create Orders table with foreign key.
@@ -76,9 +64,8 @@ CREATE TABLE orders
 )
 
 
--- =========================================================
+
 -- INSERT INTO ORDERS
--- =========================================================
 
 -- Question:
 -- Insert values into orders table.
@@ -91,19 +78,14 @@ VALUES
 (104, 3, 204, GETDATE())
 
 
--- =========================================================
 -- SHOW ORDERS TABLE
--- =========================================================
-
 -- Question:
 -- Show all orders.
 
 SELECT * FROM orders
 
 
--- =========================================================
 -- PRODUCTS TABLE
--- =========================================================
 
 -- Question:
 -- Create Products table with foreign key.
@@ -122,9 +104,7 @@ CREATE TABLE products
 )
 
 
--- =========================================================
 -- INSERT INTO PRODUCTS
--- =========================================================
 
 -- Question:
 -- Insert values into products table.
@@ -137,9 +117,7 @@ VALUES
 (204, 104, 3, 1000)
 
 
--- =========================================================
 -- SHOW PRODUCTS TABLE
--- =========================================================
 
 -- Question:
 -- Show all products.
@@ -147,9 +125,7 @@ VALUES
 SELECT * FROM products
 
 
--- =========================================================
 -- INDEXING
--- =========================================================
 
 -- Question:
 -- Create clustered index on customer_id.
@@ -187,9 +163,7 @@ DROP INDEX customer_index
 ON customer
 
 
--- =========================================================
 -- STORED PROCEDURE
--- =========================================================
 
 -- Question:
 -- Create stored procedure to show all customers.
@@ -208,7 +182,6 @@ END
 EXEC SP_AllCustomer
 
 
--- =========================================================
 
 -- Question:
 -- Create stored procedure to find customer by ID.
@@ -229,7 +202,6 @@ END
 EXEC SP_FindCustomer 1
 
 
--- =========================================================
 
 -- Question:
 -- Create stored procedure to show customers from specific city.
@@ -244,7 +216,6 @@ BEGIN
 END
 
 
--- =========================================================
 
 -- Question:
 -- Create stored procedure using output parameter.
@@ -258,7 +229,6 @@ BEGIN
 END
 
 
--- =========================================================
 
 -- Question:
 -- Create stored procedure using return value.
@@ -275,9 +245,7 @@ BEGIN
 END
 
 
--- =========================================================
 -- VIEW
--- =========================================================
 
 -- Question:
 -- Create view for all customers.
@@ -288,7 +256,6 @@ SELECT *
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Create view for customers from Dhaka.
@@ -300,7 +267,6 @@ FROM customer
 WHERE city = 'Dhaka'
 
 
--- =========================================================
 
 -- Question:
 -- Create view using INNER JOIN.
@@ -318,7 +284,6 @@ INNER JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 
 -- Question:
 -- Create view for product details.
@@ -333,7 +298,6 @@ SELECT
 FROM products
 
 
--- =========================================================
 
 -- Question:
 -- Create view for total products price.
@@ -345,9 +309,7 @@ SELECT
 FROM products
 
 
--- =========================================================
 -- JOINS
--- =========================================================
 
 -- Question:
 -- Show customer and order information using INNER JOIN.
@@ -361,7 +323,6 @@ INNER JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 
 -- Question:
 -- Show all customers even if no orders exist using LEFT JOIN.
@@ -375,7 +336,6 @@ LEFT JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 
 -- Question:
 -- Show all orders even if customer does not exist using RIGHT JOIN.
@@ -389,7 +349,6 @@ RIGHT JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 
 -- Question:
 -- Show matching data using FULL JOIN.
@@ -403,9 +362,7 @@ FULL JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 -- AGGREGATE FUNCTIONS
--- =========================================================
 
 -- Question:
 -- Find maximum age.
@@ -414,8 +371,6 @@ SELECT MAX(age) AS MaximumAge
 FROM customer
 
 
--- =========================================================
-
 -- Question:
 -- Find minimum age.
 
@@ -423,7 +378,6 @@ SELECT MIN(age) AS MinimumAge
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Find average age.
@@ -432,7 +386,6 @@ SELECT AVG(age) AS AverageAge
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Count total customers.
@@ -441,8 +394,6 @@ SELECT COUNT(customer_id) AS TotalCustomer
 FROM customer
 
 
--- =========================================================
-
 -- Question:
 -- Find total product price.
 
@@ -450,9 +401,7 @@ SELECT SUM(price) AS TotalPrice
 FROM products
 
 
--- =========================================================
 -- GROUP BY
--- =========================================================
 
 -- Question:
 -- Count customers based on city.
@@ -464,9 +413,7 @@ FROM customer
 GROUP BY city
 
 
--- =========================================================
 -- HAVING
--- =========================================================
 
 -- Question:
 -- Show cities having more than one customer.
@@ -479,9 +426,7 @@ GROUP BY city
 HAVING COUNT(customer_id) > 1
 
 
--- =========================================================
 -- SUBQUERY
--- =========================================================
 
 -- Question:
 -- Find customer having maximum age.
@@ -495,7 +440,6 @@ WHERE age =
 )
 
 
--- =========================================================
 
 -- Question:
 -- Find product having highest price.
@@ -509,9 +453,7 @@ WHERE price =
 )
 
 
--- =========================================================
 -- UPDATE CASCADE
--- =========================================================
 
 -- Question:
 -- Update customer ID and automatically update child table.
@@ -521,9 +463,7 @@ SET customer_id = 10
 WHERE customer_id = 1
 
 
--- =========================================================
 -- DELETE CASCADE
--- =========================================================
 
 -- Question:
 -- Delete customer and automatically delete related orders.
@@ -532,9 +472,7 @@ DELETE FROM customer
 WHERE customer_id = 2
 
 
--- =========================================================
 -- ALTER TABLE
--- =========================================================
 
 -- Question:
 -- Add email column.
@@ -543,8 +481,6 @@ ALTER TABLE customer
 ADD email VARCHAR(50)
 
 
--- =========================================================
-
 -- Question:
 -- Delete email column.
 
@@ -552,9 +488,7 @@ ALTER TABLE customer
 DROP COLUMN email
 
 
--- =========================================================
 -- DROP TABLE
--- =========================================================
 
 -- Question:
 -- Drop products table.
@@ -562,15 +496,12 @@ DROP COLUMN email
 DROP TABLE products
 
 
--- =========================================================
 
 -- Question:
 -- Drop orders table.
 
 DROP TABLE orders
 
-
--- =========================================================
 
 -- Question:
 -- Drop customer table.

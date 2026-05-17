@@ -1,6 +1,4 @@
--- =========================================================
 -- DATABASE CREATE
--- =========================================================
 
 -- Question:
 -- Create database for cascading update and delete.
@@ -10,9 +8,7 @@ CREATE DATABASE CascadeDB
 USE CascadeDB
 
 
--- =========================================================
 -- PARENT TABLE
--- =========================================================
 
 -- Question:
 -- Create parent table customer.
@@ -28,9 +24,7 @@ CREATE TABLE customer
 )
 
 
--- =========================================================
 -- INSERT INTO CUSTOMER
--- =========================================================
 
 -- Question:
 -- Insert data into customer table.
@@ -42,9 +36,7 @@ VALUES
 (3, 'Ayesha', 22, 'Chittagong')
 
 
--- =========================================================
 -- SHOW CUSTOMER TABLE
--- =========================================================
 
 -- Question:
 -- Show customer table.
@@ -52,9 +44,7 @@ VALUES
 SELECT * FROM customer
 
 
--- =========================================================
 -- CHILD TABLE
--- =========================================================
 
 -- Question:
 -- Create child table orders with
@@ -76,9 +66,7 @@ CREATE TABLE orders
 )
 
 
--- =========================================================
 -- INSERT INTO ORDERS
--- =========================================================
 
 -- Question:
 -- Insert data into orders table.
@@ -91,9 +79,7 @@ VALUES
 (104, 3, 204, GETDATE())
 
 
--- =========================================================
 -- SHOW ORDERS TABLE
--- =========================================================
 
 -- Question:
 -- Show orders table.
@@ -101,9 +87,7 @@ VALUES
 SELECT * FROM orders
 
 
--- =========================================================
 -- CASCADING UPDATE
--- =========================================================
 
 -- Question:
 -- Update parent table primary key and
@@ -114,9 +98,7 @@ SET customer_id = 10
 WHERE customer_id = 1
 
 
--- =========================================================
 -- SHOW RESULT AFTER UPDATE
--- =========================================================
 
 -- Question:
 -- Show customer table after update.
@@ -135,9 +117,7 @@ SELECT * FROM orders
 -- orders table customer_id also automatically becomes 10
 
 
--- =========================================================
 -- CASCADING DELETE
--- =========================================================
 
 -- Question:
 -- Delete parent table data and automatically
@@ -147,9 +127,7 @@ DELETE FROM customer
 WHERE customer_id = 2
 
 
--- =========================================================
 -- SHOW RESULT AFTER DELETE
--- =========================================================
 
 -- Question:
 -- Show customer table after delete.
@@ -168,9 +146,7 @@ SELECT * FROM orders
 -- related rows also deleted automatically from orders table
 
 
--- =========================================================
 -- ER DIAGRAM STRUCTURE
--- =========================================================
 
 -- Question:
 -- Understand ER relationship.
@@ -185,9 +161,7 @@ SELECT * FROM orders
 -- orders (Child Table)
 
 
--- =========================================================
 -- INDEXING
--- =========================================================
 
 -- Question:
 -- Create clustered index.
@@ -196,7 +170,6 @@ CREATE CLUSTERED INDEX customer_clustered_index
 ON customer(customer_id)
 
 
--- =========================================================
 
 -- Question:
 -- Create nonclustered index.
@@ -205,7 +178,6 @@ CREATE NONCLUSTERED INDEX customer_name_index
 ON customer(Names)
 
 
--- =========================================================
 
 -- Question:
 -- Search using index.
@@ -215,9 +187,7 @@ FROM customer
 WHERE Names = 'Rahim'
 
 
--- =========================================================
 -- VIEW
--- =========================================================
 
 -- Question:
 -- Create view for all customers.
@@ -228,7 +198,6 @@ SELECT *
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Create view using join.
@@ -246,9 +215,7 @@ INNER JOIN orders
 ON customer.customer_id = orders.customer_id
 
 
--- =========================================================
 -- STORED PROCEDURE
--- =========================================================
 
 -- Question:
 -- Create stored procedure to show all customers.
@@ -261,7 +228,6 @@ BEGIN
 END
 
 
--- =========================================================
 
 -- Question:
 -- Execute stored procedure.
@@ -269,7 +235,6 @@ END
 EXEC SP_AllCustomer
 
 
--- =========================================================
 
 -- Question:
 -- Create stored procedure with parameter.
@@ -284,7 +249,6 @@ BEGIN
 END
 
 
--- =========================================================
 
 -- Question:
 -- Execute stored procedure with parameter.
@@ -292,9 +256,7 @@ END
 EXEC SP_FindCustomer 10
 
 
--- =========================================================
 -- AGGREGATE FUNCTIONS
--- =========================================================
 
 -- Question:
 -- Find maximum age.
@@ -303,7 +265,6 @@ SELECT MAX(age) AS MaximumAge
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Find average age.
@@ -312,7 +273,6 @@ SELECT AVG(age) AS AverageAge
 FROM customer
 
 
--- =========================================================
 
 -- Question:
 -- Count total customers.
@@ -321,9 +281,7 @@ SELECT COUNT(customer_id) AS TotalCustomer
 FROM customer
 
 
--- =========================================================
 -- GROUP BY
--- =========================================================
 
 -- Question:
 -- Count customers by city.
@@ -335,9 +293,7 @@ FROM customer
 GROUP BY city
 
 
--- =========================================================
 -- HAVING
--- =========================================================
 
 -- Question:
 -- Show cities having more than one customer.
@@ -350,9 +306,7 @@ GROUP BY city
 HAVING COUNT(customer_id) > 1
 
 
--- =========================================================
 -- SUBQUERY
--- =========================================================
 
 -- Question:
 -- Find customer having maximum age.
@@ -366,9 +320,7 @@ WHERE age =
 )
 
 
--- =========================================================
 -- DROP TABLE
--- =========================================================
 
 -- Question:
 -- Drop child table first.
@@ -376,7 +328,6 @@ WHERE age =
 DROP TABLE orders
 
 
--- =========================================================
 
 -- Question:
 -- Drop parent table.
