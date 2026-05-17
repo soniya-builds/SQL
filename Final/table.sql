@@ -7,7 +7,6 @@ USE DBLab
 
 
 -- CUSTOMER TABLE (PARENT TABLE)
-
 -- Question:
 -- Create Customer table.
 
@@ -23,7 +22,6 @@ CREATE TABLE customer
 
 
 -- INSERT INTO CUSTOMER
-
 -- Question:
 -- Insert values into customer table.
 
@@ -36,7 +34,6 @@ VALUES
 
 
 -- SHOW CUSTOMER TABLE
-
 -- Question:
 -- Show all customer information.
 
@@ -44,7 +41,6 @@ SELECT * FROM customer
 
 
 -- ORDERS TABLE (CHILD TABLE)
-
 -- Question:
 -- Create Orders table with foreign key.
 
@@ -66,7 +62,6 @@ CREATE TABLE orders
 
 
 -- INSERT INTO ORDERS
-
 -- Question:
 -- Insert values into orders table.
 
@@ -86,7 +81,6 @@ SELECT * FROM orders
 
 
 -- PRODUCTS TABLE
-
 -- Question:
 -- Create Products table with foreign key.
 
@@ -105,7 +99,6 @@ CREATE TABLE products
 
 
 -- INSERT INTO PRODUCTS
-
 -- Question:
 -- Insert values into products table.
 
@@ -118,7 +111,6 @@ VALUES
 
 
 -- SHOW PRODUCTS TABLE
-
 -- Question:
 -- Show all products.
 
@@ -126,7 +118,6 @@ SELECT * FROM products
 
 
 -- INDEXING
-
 -- Question:
 -- Create clustered index on customer_id.
 
