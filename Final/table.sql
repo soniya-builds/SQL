@@ -193,7 +193,6 @@ END
 EXEC SP_FindCustomer 1
 
 
-
 -- Question:
 -- Create stored procedure to show customers from specific city.
 
