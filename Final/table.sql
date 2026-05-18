@@ -60,7 +60,6 @@ CREATE TABLE orders
 )
 
 
-
 -- INSERT INTO ORDERS
 -- Question:
 -- Insert values into orders table.
@@ -185,7 +184,6 @@ BEGIN
     FROM customer
     WHERE customer_id = @CustomerID
 END
-
 
 -- Question:
 -- Execute stored procedure with parameter.
